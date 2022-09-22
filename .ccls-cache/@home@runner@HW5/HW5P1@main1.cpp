@@ -28,5 +28,17 @@ int main() {
   inFile >> TestResult;
   cout << TestResult << endl;
 
+  while(inFile)
+    {
+      // update number of cases & persons tested
+      cumulative_cases = cumulative_cases + TestResult;
+      count++; // increment the number of persons
+
+      //read in the next line
+      inFile >> firstName;
+    }
+
+  inFile.close();
+
   return 0;
 }

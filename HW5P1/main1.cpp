@@ -18,6 +18,9 @@ int main() {
   // open the input file
   inFile.open("TestResultsData.dat");
 
+  // open output file
+  outFile.open("AnalyzedData.txt");
+
   // read in the date - first line of file
   inFile >> date;
   cout << date << endl;
@@ -27,6 +30,23 @@ int main() {
   cout << firstName << ' ';
   inFile >> TestResult;
   cout << TestResult << endl;
+
+  while(inFile)
+    {
+      // update number of cases & persons tested
+      cumulative_cases = cumulative_cases + TestResult;
+      count++; // increment the number of persons
+
+      //read in the next line
+      inFile >> firstName;
+      inFile >> TestResult;
+    }
+
+  inFile.close();
+
+  cout << "Total Number Cases = " << count << endl;
+  cout << "Number of persons tested = " << cumulative_cases << endl;
+  
 
   return 0;
 }
